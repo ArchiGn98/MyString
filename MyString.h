@@ -8,6 +8,7 @@
 class MyString
 {
     friend bool operator==(const MyString &lhs,const MyString &rhs);
+    friend bool operator!=(const MyString &lhs,const MyString &rhs);
     friend MyString operator-(const MyString &obj);
     friend MyString operator+(const MyString &lhs,const MyString &rhs);
     friend std::ostream &operator<<(std::ostream &os, const MyString &rhs);
@@ -26,7 +27,7 @@ public:
     MyString &operator=(MyString &&rhs);
     void operator--()const;
     void operator++()const;
-    bool operator!=(const MyString &rhs)const;
+
 
 };
 

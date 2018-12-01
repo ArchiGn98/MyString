@@ -114,10 +114,7 @@ void MyString::operator++() const
 
 
 
-bool MyString::operator!=(const MyString &rhs) const
-{
-    return !(std::strcmp(str, rhs.str)==0);
-}
+
 
 
 
@@ -128,6 +125,15 @@ bool operator==(const MyString &lhs,const MyString &rhs){
 #endif
     return std::strcmp(lhs.str, rhs.str)==0;
 }
+
+bool operator!=(const MyString &lhs,const MyString &rhs){
+#ifdef DEBUG
+    std::cout << "global operator(!=)" << std::endl;
+#endif
+    return !(std::strcmp(lhs.str, rhs.str)==0);
+}
+
+
 MyString operator-(const MyString &obj){
 #ifdef DEBUG
     std::cout << "global operator(-)"<< std::endl;
@@ -141,6 +147,7 @@ MyString operator-(const MyString &obj){
     delete [] buff;
     return temp;
 }
+
 MyString operator+(const MyString &lhs,const MyString &rhs){
 #ifdef DEBUG
     std::cout << "global Concatenation operator(+)" << std::endl;
@@ -153,6 +160,7 @@ MyString operator+(const MyString &lhs,const MyString &rhs){
     delete [] buff;
     return temp;
 }
+
 std::ostream &operator<<(std::ostream &os, const MyString &rhs){
 #ifdef DEBUG
     std::cout << "output stream(<<)" << std::endl;
@@ -160,6 +168,7 @@ std::ostream &operator<<(std::ostream &os, const MyString &rhs){
     os << rhs.str;
     return os;
 }
+
 std::istream &operator>>(std::istream &is, MyString &rhs){
 #ifdef DEBUG
     std::cout << "input stream(>>)" << std::endl;
